@@ -1,3 +1,6 @@
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import pandas as pd, numpy as np, matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt, seaborn as sns
@@ -12,7 +15,7 @@ from sklearn.inspection import permutation_importance
 sns.set_theme(style="whitegrid")
 
 # 1. LOAD
-df = pd.read_csv("telco.csv")
+df = pd.read_csv(os.path.join(BASE_DIR, "telco.csv"))
 print("Shape:", df.shape)
 df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
 df["TotalCharges"] = df["TotalCharges"].fillna(0)   # new customers with tenure 0

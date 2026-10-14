@@ -1,6 +1,6 @@
 # Handwritten Digit Recognition (MNIST)
 
-**Task 4 | InfozaTech Machine Learning Internship**
+**InfozaTech Machine Learning Internship**
 
 A deep learning project that recognises handwritten digits (0-9) from the MNIST dataset. Two models are trained and compared: a fully connected neural network and a convolutional neural network (CNN).
 
@@ -80,4 +80,4 @@ Python, TensorFlow/Keras, NumPy, Pandas, Matplotlib, scikit-learn
 
 ## Author
 
-Sona | InfozaTech ML Internship
+Sona Rajendren | MCA | Presidency University

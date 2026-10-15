@@ -1,3 +1,6 @@
 venv/
 __pycache__/
 *.pyc
+
+Movie_Recommendation_System/data/
+__pycache__/

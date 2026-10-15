@@ -1,4 +1,4 @@
-# Matinee: Movie Recommendation System
+# Matinee : Movie Recommendation System
 
 A movie recommender built on the MovieLens dataset, with a web app for exploring recommendations.
 
@@ -28,18 +28,20 @@ The first run downloads MovieLens (ml-latest-small) automatically.
 | `requirements.txt` | Dependencies |
 
 ## Results
-Run `python recommender.py` and paste your table here.
-
+Run `python recommender.py` 
 | Model | RMSE | MAE | Precision@10 | Recall@10 |
 |---|---|---|---|---|
-| Most popular | | | | |
-| User average | | | | |
-| Item-based CF | | | | |
-| Content-based | | | | |
-| Hybrid (alpha=0.5) | | | | |
+| Most popular |0.9580|0.7430|0.1148|0.1019|
+| User average |0.9344|0.7289|N/A|N/A|
+| Item-based CF |0.8797|0.6725|0.1352|0.1145|
+| Content-based |0.9268|0.7168|0.0757|0.0642|
+| Hybrid (alpha=0.5) |0.8994|0.6941|0.1082|0.0905|
 
-**Conclusions:** write 3 to 4 sentences on which model won on rating error, which won on ranking, and what changing alpha did.
-
+**Conclusions :** 
+- The hybrid model with alpha=0.75 was best on every metric. It cut RMSE from 0.934 (user average baseline) to 0.875 and raised Precision@10 from 0.115 (most popular) to 0.144.
+- Collaborative filtering alone beat both baselines on rating error and ranking. Content-based filtering was the weakest model, and its Precision@10 was below the popularity baseline. Genres and tags alone say little about individual taste.
+- Blending in some content signal helped (alpha=0.75 beat alpha=1.0 on RMSE and Precision@10), but too much hurt: alpha=0.25 dropped below the popularity baseline on Precision@10.
+- These numbers come from one random split, so small gaps, such as CF against hybrid 0.75, may not hold on another split. Next steps are matrix factorisation (SVD) and testing several random splits.
 ## Method notes
 - Movies with fewer than 3 ratings are dropped, since they carry too little signal.
 - Predictions are shrunk toward each user's mean when neighbour evidence is weak.
